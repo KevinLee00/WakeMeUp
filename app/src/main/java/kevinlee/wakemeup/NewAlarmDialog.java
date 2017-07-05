@@ -18,6 +18,7 @@ public class NewAlarmDialog extends DialogFragment {
         builder.setView(view);
 
         final TimePicker tp = (TimePicker) view.findViewById(R.id.timePicker);
+        final RVAdapter adapter = new RVAdapter();
 
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
@@ -26,13 +27,19 @@ public class NewAlarmDialog extends DialogFragment {
                 alarm.setHour(tp.getHour());
                 alarm.setMinute(tp.getMinute());
                 AlarmManager.addAlarm(alarm);
-                Toast.makeText(getActivity(), "You made an alarm. Good job, Helen!", Toast.LENGTH_SHORT).show();
+//                AlarmManager.setListener(new AlarmManager.ClickListener() {
+//                    @Override
+//                    public void datasetChanged() {
+//                        adapter.notifyDataSetChanged();
+//                    }
+//                });
+//                Toast.makeText(getActivity(), "You made an alarm. Good job, Helen!", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                
+
             }
         });
         return builder.create();

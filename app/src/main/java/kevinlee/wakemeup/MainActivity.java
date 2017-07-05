@@ -2,7 +2,9 @@ package kevinlee.wakemeup;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,6 +29,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        final RVAdapter adapter = new RVAdapter();
+        rv.setAdapter(adapter);
+
+        AlarmManager.setListener(new AlarmManager.ClickListener() {
+            @Override
+            public void datasetChanged() {
+                adapter.notifyDataSetChanged();
+            }
+        });
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 dialogFragment.show(getFragmentManager(), "NewDialogFragment");
             }
         });
-
-        RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-        RVAdapter adapter = new RVAdapter(AlarmManager.getListOfAlarms());
-        rv.setAdapter(adapter);
     }
 
     @Override

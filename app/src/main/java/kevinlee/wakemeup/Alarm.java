@@ -1,5 +1,6 @@
 package kevinlee.wakemeup;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -8,8 +9,9 @@ import java.util.List;
 public class Alarm {
     private int hour; // 0 - 23
     private int minute; // 0 - 59
-    private List<Boolean> daysOfWeek;
+    private ArrayList<Boolean> daysOfWeek;
     private Date dateCreated;
+    private boolean isEnabled;
 
     public int getHour() {
         return hour;
@@ -27,11 +29,11 @@ public class Alarm {
         this.minute = minute;
     }
 
-    public List<Boolean> getDaysOfWeek() {
+    public ArrayList<Boolean> getDaysOfWeek() {
         return daysOfWeek;
     }
 
-    public void setDaysOfWeek(List<Boolean> daysOfWeek) {
+    public void setDaysOfWeek(ArrayList<Boolean> daysOfWeek) {
         this.daysOfWeek = daysOfWeek;
     }
 
@@ -42,4 +44,17 @@ public class Alarm {
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
+
+    public boolean getEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled() {
+        isEnabled = true;
+    }
+
+    public void setDisabled() {
+        isEnabled = false;
+    }
+
 }

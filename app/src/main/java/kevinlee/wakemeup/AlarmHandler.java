@@ -2,7 +2,7 @@ package kevinlee.wakemeup;
 
 import java.util.ArrayList;
 
-public class AlarmManager {
+public class AlarmHandler {
     private static ArrayList<Alarm> listOfAlarms = new ArrayList<>();
     public static ClickListener listener;
 
@@ -22,6 +22,16 @@ public class AlarmManager {
 
     public static void setListener(ClickListener cl) {
         listener = cl;
+    }
+
+    public static void enableAlarm(int index) {
+        listOfAlarms.get(index).setEnabled();
+//        listener.datasetChanged();
+    }
+
+    public static void disableAlarm(int index) {
+        listOfAlarms.get(index).setDisabled();
+//        listener.datasetChanged();
     }
     public interface ClickListener {
         void datasetChanged();

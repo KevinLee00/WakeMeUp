@@ -4,17 +4,32 @@
     android:layout_height="match_parent"
     android:minWidth="300dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/alarm_plus"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
     <TimePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/timePicker">
+        android:id="@+id/timePicker"
+        android:timePickerMode="spinner">
     </TimePicker>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center">
 
         <CheckBox

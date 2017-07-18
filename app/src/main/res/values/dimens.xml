@@ -6,4 +6,5 @@
     <dimen name="settings_bottom">25dp</dimen>
     <dimen name="settings_title">20sp</dimen>
     <dimen name="settings_detail">14sp</dimen>
+    <dimen name="math_text">20sp</dimen>
 </resources>

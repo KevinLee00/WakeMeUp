@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WakeMeUp</string>
     <string name="action_settings">Settings</string>
+    <string name="what_is">What is </string>
+    <string name="plus"> + </string>
+    <string name="question_mark"> \?</string>
 </resources>

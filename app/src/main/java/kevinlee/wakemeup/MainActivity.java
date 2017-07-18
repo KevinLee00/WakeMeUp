@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Calendar cal = Calendar.getInstance();
-        final AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent myIntent = new Intent(this, AlarmReceiver.class);
-        final PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis() + 5000, pendingIntent);
 
 //        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
+        RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         final RVAdapter adapter = new RVAdapter(getApplicationContext());
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 DialogFragment dialogFragment = new NewAlarmDialog();
                 dialogFragment.show(getFragmentManager(), "NewDialogFragment");
+                AlarmHandler.ringtone.stop();
 //                alarmManager.cancel(pendingIntent);
             }
         });
